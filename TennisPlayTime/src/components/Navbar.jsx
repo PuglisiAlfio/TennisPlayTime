@@ -14,7 +14,7 @@ export default function Navbar() {
     <nav className="text-2xl z-10 text-lime-300 bg-transparent">
       <div className="container mx-auto flex justify-between items-center text-lime-300">
         <div className="">
-          <Link to="/">
+          <Link to="/homepage">
             <img src={logo} alt="LogoTPT" className="h-20 w-auto" />
           </Link>
         </div>
@@ -40,7 +40,7 @@ export default function Navbar() {
         {/* Menu completo, visibile solo su schermi medi e grandi */}
         <ul className="hidden md:flex space-x-0 min-h-full">
           <li className="border-l border-lime-300 h-full flex items-center transition duration-700 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-2 px-7">
-            <Link to="/" className="block p-2 font-semibold">
+            <Link to="/homepage" className="block p-2 font-semibold">
               Home
             </Link>
           </li>
@@ -60,7 +60,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="border-l border-lime-300 border-r h-full flex items-center transition duration-700 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-2 px-7">
-            <Link to="/login" className="block p-2 font-semibold">
+            <Link to="/" className="block p-2 font-semibold">
               Login
             </Link>
           </li>

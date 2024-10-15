@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx';
+import Login from './pages/Login.jsx'
 
 import './App.css'
 import sfondo from "./assets/campotennisaltramonto.jpg"
@@ -24,11 +25,11 @@ function App() {
         <Navbar/>
         {/* Aggiungi i tuoi componenti di routing qui */}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/homepage" element={<Home />} />
           {/* <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/prenota" element={<Prenota />} />
-          <Route path="/profilo" element={<Profilo />} />
-          <Route path="/login" element={<Login />} /> */}
+          <Route path="/profilo" element={<Profilo />} />*/}
+          <Route path="/" element={<Login />} />
         </Routes>
       </div>
     </Router>

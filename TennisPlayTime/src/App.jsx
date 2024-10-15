@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar.jsx'
+import Home from './pages/Home.jsx';
 
 import './App.css'
-import sfondo from "./assets/sfondo.jpg"
+import sfondo from "./assets/campotennisaltramonto.jpg"
 
 function App() {
 
@@ -18,17 +19,17 @@ function App() {
         ></div>
 
         {/* Overlay semi-trasparente */}
-        <div className="absolute inset-0 bg-black opacity-60 -z-10"></div>
+        <div className="absolute inset-0 bg-black opacity-75 -z-10"></div>
 
         <Navbar/>
         {/* Aggiungi i tuoi componenti di routing qui */}
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/prenota" element={<Prenota />} />
           <Route path="/profilo" element={<Profilo />} />
-          <Route path="/login" element={<Login />} />
-        </Routes> */}
+          <Route path="/login" element={<Login />} /> */}
+        </Routes>
       </div>
     </Router>
   );

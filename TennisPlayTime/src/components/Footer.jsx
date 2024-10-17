@@ -1,13 +1,13 @@
 export default function Footer(){
 return (
-<footer className="bg-gray-800 text-lime-300 py-10">
+<footer className="bg-gray-900 text-lime-300 py-10">
   <div className="container mx-auto px-4">
     <div className="md:flex md:justify-between">
 
       {/* Informazioni sulla sede */}
       <div className="mb-8 md:mb-0">
         <h3 className="text-2xl font-bold mb-4">La nostra sede</h3>
-        <p>Via dell'Esempio 123, 00100 Roma</p>
+        <p>Via dell'Esempio 123, 00000 Catania</p>
         <a
           href="https://www.google.com/maps"
           target="_blank"

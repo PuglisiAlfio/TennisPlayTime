@@ -16,7 +16,7 @@ function App() {
       <div className="relative min-h-screen">
         {/* Immagine di sfondo */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10"
+          className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat -z-10"
           style={{ backgroundImage: `url(${sfondo})` }}
         ></div>
 

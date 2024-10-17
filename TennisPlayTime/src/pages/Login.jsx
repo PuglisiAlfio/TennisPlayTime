@@ -26,8 +26,8 @@ export default function Login() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="bg-white shadow-lg rounded-lg p-10 w-96">
-        <h2 className="text-3xl font-bold text-center mb-8">Accedi</h2>
+      <div className="bg-slate-300 shadow-lg rounded-lg p-10 w-96">
+        <h2 className="text-3xl font-bold text-gray-700 text-center mb-8">Accedi</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
             <label className="block text-lg font-medium text-gray-700">
@@ -64,7 +64,7 @@ export default function Login() {
           </button>
         </form>
         <div className="text-center mt-4">
-          <a href="#" className="text-sm text-lime-500 hover:underline">
+          <a href="#" className="text-sm text-lime-600 hover:underline">
             Hai dimenticato la password?
           </a>
         </div>

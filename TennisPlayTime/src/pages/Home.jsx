@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import servizio from "../assets/servizio.jpg";
 
 export default function Home() {
@@ -14,10 +16,11 @@ export default function Home() {
                 Trova compagni di gioco e campi liberi con un semplice clic.
               </p>
             </div>
-
-            <button className="border-l border-lime-300 border-r flex items-center transition duration-500 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-6 px-14 font-semibold text-xl rounded-full shadow-md mt-4 mx-auto">
-              Prenota ora
-            </button>
+            <Link to="/prenota">
+              <button className="border-l border-lime-300 border-r flex items-center transition duration-500 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-6 px-14 font-semibold text-xl rounded-full shadow-md mt-4 mx-auto">
+                Prenota ora
+              </button>
+            </Link>
           </div>
 
           <div className="w-full md:w-1/2 hidden md:block">
@@ -68,9 +71,11 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <button className="border-l border-lime-300 border-r flex items-center transition duration-500 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-6 px-14 font-semibold text-xl rounded-full shadow-md mt-4 mx-auto">
-            Prenota ora
-          </button>
+          <Link to="/prenota">
+              <button className="border-l border-lime-300 border-r flex items-center transition duration-500 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-6 px-14 font-semibold text-xl rounded-full shadow-md mt-4 mx-auto">
+                Prenota ora
+              </button>
+            </Link>
         </div>
       </section>
       <section>
@@ -98,9 +103,11 @@ export default function Home() {
               <p className="mt-2 text-sm">- Luca F.</p>
             </div>
           </div>
-          <button className="border-l border-lime-300 border-r flex items-center transition duration-500 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-6 px-14 font-semibold text-xl rounded-full shadow-md mt-4 mx-auto">
-            Prenota ora
-          </button>
+          <Link to="/prenota">
+              <button className="border-l border-lime-300 border-r flex items-center transition duration-500 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-6 px-14 font-semibold text-xl rounded-full shadow-md mt-4 mx-auto">
+                Prenota ora
+              </button>
+            </Link>
         </div>
       </section>
       <section>

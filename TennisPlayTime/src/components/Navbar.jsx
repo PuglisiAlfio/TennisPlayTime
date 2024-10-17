@@ -97,7 +97,7 @@ export default function Navbar() {
         {/* Menu items */}
         <div className="flex flex-col items-center mt-4 gap-2">
           <Link
-            to="/"
+            to="/homepage"
             className="w-full h-12 flex items-center justify-center text-lime-300 border-t border-t-lime-300"
             onClick={toggleMenu}
           >
@@ -125,7 +125,7 @@ export default function Navbar() {
             Profilo
           </Link>
           <Link
-            to="/login"
+            to="/"
             className="w-full h-12 flex items-center justify-center text-lime-300 border-t border-b border-lime-300"
             onClick={toggleMenu}
           >

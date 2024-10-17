@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar.jsx'
+import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx'
 
@@ -23,7 +24,6 @@ function App() {
         <div className="absolute inset-0 bg-black opacity-75 -z-10"></div>
 
         <Navbar/>
-        {/* Aggiungi i tuoi componenti di routing qui */}
         <Routes>
           <Route path="/homepage" element={<Home />} />
           {/* <Route path="/dashboard" element={<Dashboard />} />
@@ -31,6 +31,7 @@ function App() {
           <Route path="/profilo" element={<Profilo />} />*/}
           <Route path="/" element={<Login />} />
         </Routes>
+        <Footer/>
       </div>
     </Router>
   );

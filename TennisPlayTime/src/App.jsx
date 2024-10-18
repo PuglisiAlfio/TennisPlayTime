@@ -4,6 +4,7 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Home from './pages/Home.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import Prenota from './pages/Prenota.jsx'
 import Login from './pages/Login.jsx';
 
 import './App.css'
@@ -28,8 +29,8 @@ function App() {
         <Routes>
           <Route path="/homepage" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          {/* <Route path="/prenota" element={<Prenota />} />
-          <Route path="/profilo" element={<Profilo />} />*/}
+          <Route path="/prenota" element={<Prenota />} />
+          {/* <Route path="/profilo" element={<Profilo />} />*/}
           <Route path="/" element={<Login />} />
         </Routes>
         <Footer/>

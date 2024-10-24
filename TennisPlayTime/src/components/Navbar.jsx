@@ -1,14 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logotpt.png";
 
 export default function Navbar() {
+  const location = useLocation()
   const [isOpen, setIsOpen] = useState(false); // Stato per gestire l'apertura del menu
 
   // Funzione per gestire il clic dell'icona del menu
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  if (location.pathname === '/') {
+    return null;
+  }
 
   return (
     <nav className="text-2xl z-10 text-lime-300 bg-transparent">

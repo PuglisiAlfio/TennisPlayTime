@@ -1,13 +1,16 @@
 [
   {
     "username": "Alfio",
-    "password": "123456"
+    "password": "123456",
+    "useremail": "info@esempio.it"
   },
   {
     "username": "Luca",
-    "password": "Rossi"
+    "password": "Rossi",
+    "useremail": "luca@esempio.it"
   },{
     "username": "Giovanni",
-    "password": "Ciao"
+    "password": "Ciao",
+    "useremail": "giovanni@esempio.it"
   }
 ]

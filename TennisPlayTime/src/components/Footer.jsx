@@ -42,7 +42,7 @@ return (
         <h3 className="text-2xl font-bold mb-4">Contatti</h3>
         <p>Email: <a href="mailto:info@esempio.com" className="text-lime-500 hover:text-lime-400">info@esempio.com</a></p>
         <p>Telefono: <a href="tel:+390000000000" className="text-lime-500 hover:text-lime-400">+39 00 0000 0000</a></p>
-        <p>Orari: Lun - Ven: 9:00 - 18:00</p>
+        <p>Orari: Lun - Ven: 8:00 - 20:00</p>
       </div>
 
     </div>

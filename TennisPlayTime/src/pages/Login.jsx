@@ -18,6 +18,7 @@ export default function Login() {
 
     if (user) {
       setError("");
+      localStorage.setItem('user', JSON.stringify(user));
       navigate("/homepage"); // Reindirizza alla homepage
     } else {
       setError("Nome utente o password non validi.");

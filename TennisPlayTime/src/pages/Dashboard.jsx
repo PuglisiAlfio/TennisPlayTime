@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import pastMatches from "../pastMatches.json"
+
 export default function Dashboard() {
   const upcomingMatches = [
     {
@@ -19,76 +21,9 @@ export default function Dashboard() {
     },
   ];
 
-  const pastMatches = [
-    {
-      id: 1,
-      date: "2024-09-15",
-      opponent: "Luca Verdi",
-      result: "6-3, 6-4",
-      outcome: "Vittoria",
-      avatar: "https://via.placeholder.com/150",
-    },
-    {
-      id: 2,
-      date: "2024-08-30",
-      opponent: "Andrea Neri",
-      result: "3-6, 4-6",
-      outcome: "Sconfitta",
-      avatar: "https://via.placeholder.com/150",
-    },
-    {
-        id: 3,
-        date: "2024-08-23",
-        opponent: "Carmelo Lizzio",
-        result: "7-6, 6-4",
-        outcome: "Vittoria",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        id: 4,
-        date: "2024-08-30",
-        opponent: "Antonio Vecchio",
-        result: "6-0, 3-6, 6-3",
-        outcome: "Vittoria",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        id: 5,
-        date: "2024-09-15",
-        opponent: "Luca Verdi",
-        result: "6-3, 6-4",
-        outcome: "Vittoria",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        id: 6,
-        date: "2024-08-30",
-        opponent: "Andrea Neri",
-        result: "3-6, 4-6",
-        outcome: "Sconfitta",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-          id: 7,
-          date: "2024-08-23",
-          opponent: "Carmelo Lizzio",
-          result: "7-6, 6-4",
-          outcome: "Vittoria",
-          avatar: "https://via.placeholder.com/150",
-        },
-        {
-          id: 8,
-          date: "2024-08-30",
-          opponent: "Antonio Vecchio",
-          result: "6-0, 3-6, 6-3",
-          outcome: "Vittoria",
-          avatar: "https://via.placeholder.com/150",
-        }
-  ];
-
   return (
     <div className="p-8 text-lime-400">
-      <h1 className="text-6xl font-bold mb-8 text-center">Dashboard Utente</h1>
+      <h1 className="text-6xl font-bold mb-8 text-center">Le tue Partite</h1>
 
       {/* Sezione per prenotare un nuovo match */}
       <div className="flex justify-center mb-10">

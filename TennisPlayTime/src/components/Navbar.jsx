@@ -59,16 +59,16 @@ export default function Navbar() {
               Prenota
             </Link>
           </li>
-          <li className="border-l border-lime-300 h-full flex items-center transition duration-700 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-2 px-7">
+          <li className="border-l border-lime-300 border-r h-full flex items-center transition duration-700 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-2 px-7">
             <Link to="/profilo" className="block p-2 font-semibold">
               Profilo
             </Link>
           </li>
-          <li className="border-l border-lime-300 border-r h-full flex items-center transition duration-700 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-2 px-7">
+          {/* <li className="border-l border-lime-300 border-r h-full flex items-center transition duration-700 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-lime-300 hover:text-gray-800 py-2 px-7">
             <Link to="/" className="block p-2 font-semibold">
               Login
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
 
@@ -129,13 +129,13 @@ export default function Navbar() {
           >
             Profilo
           </Link>
-          <Link
+          {/* <Link
             to="/"
             className="w-full h-12 flex items-center justify-center text-lime-300 border-t border-b border-lime-300"
             onClick={toggleMenu}
           >
             Login
-          </Link>
+          </Link> */}
         </div>
       </div>
     </nav>

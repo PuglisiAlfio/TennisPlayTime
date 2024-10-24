@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Prenota from './pages/Prenota.jsx'
 import Login from './pages/Login.jsx';
+import Profile from './pages/Profile.jsx'
 
 import './App.css'
 import sfondo from "./assets/campotennisaltramonto.jpg"
@@ -30,7 +31,7 @@ function App() {
           <Route path="/homepage" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/prenota" element={<Prenota />} />
-          {/* <Route path="/profilo" element={<Profilo />} />*/}
+          <Route path="/profilo" element={<Profile />} />
           <Route path="/" element={<Login />} />
         </Routes>
         <Footer/>

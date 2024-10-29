@@ -1,0 +1,66 @@
+[
+    {
+      "id": 1,
+      "date": "2024-09-15",
+      "opponent": "Luca Verdi",
+      "result": "6-3, 6-4",
+      "outcome": "Vittoria",
+      "avatar": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "date": "2024-08-30",
+      "opponent": "Andrea Neri",
+      "result": "3-6, 4-6",
+      "outcome": "Sconfitta",
+      "avatar": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 3,
+      "date": "2024-08-23",
+      "opponent": "Carmelo Lizzio",
+      "result": "7-6, 6-4",
+      "outcome": "Vittoria",
+      "avatar": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 4,
+      "date": "2024-08-30",
+      "opponent": "Antonio Vecchio",
+      "result": "6-0, 3-6, 6-3",
+      "outcome": "Vittoria",
+      "avatar": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 5,
+      "date": "2024-09-15",
+      "opponent": "Luca Verdi",
+      "result": "6-3, 6-4",
+      "outcome": "Vittoria",
+      "avatar": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 6,
+      "date": "2024-08-30",
+      "opponent": "Andrea Neri",
+      "result": "3-6, 4-6",
+      "outcome": "Sconfitta",
+      "avatar": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 7,
+      "date": "2024-08-23",
+      "opponent": "Carmelo Lizzio",
+      "result": "7-6, 6-4",
+      "outcome": "Vittoria",
+      "avatar": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 8,
+      "date": "2024-08-30",
+      "opponent": "Antonio Vecchio",
+      "result": "6-0, 3-6, 6-3",
+      "outcome": "Vittoria",
+      "avatar": "https://via.placeholder.com/150"
+    }
+  ]

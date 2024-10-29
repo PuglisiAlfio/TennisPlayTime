@@ -44,6 +44,24 @@ export default function BookingPage() {
     });
   };
 
+  const getAvailableTimes = () => {
+    const now = new Date();
+    const isToday =
+      state.selectedDate &&
+      state.selectedDate.toDateString() === now.toDateString();
+
+    const allTimes = ["08:00", "10:00", "12:00", "14:00", "16:00", "18:00"];
+
+    // Se è oggi, filtra gli orari dopo l'orario corrente
+    if (isToday) {
+      const currentHour = now.getHours();
+      return allTimes.filter((time) => parseInt(time, 10) > currentHour);
+    }
+
+    // Se non è oggi, mostra tutti gli orari
+    return allTimes;
+  };
+
   // Dati sui campi
   const fields = [
     {
@@ -91,6 +109,7 @@ export default function BookingPage() {
                 dateFormat="dd/MM/yyyy"
                 className="w-full p-2 rounded-md border border-lime-300 focus:outline-none focus:ring focus:ring-lime-300"
                 placeholderText="Scegli una data"
+                minDate={new Date()} //limita la prenotazione a partire da oggi
               />
             </div>
 
@@ -107,12 +126,11 @@ export default function BookingPage() {
                 className="w-full p-2 rounded-md border border-lime-300 focus:outline-none focus:ring focus:ring-lime-300"
               >
                 <option value="">Scegli un orario</option>
-                <option value="08:00">08:00</option>
-                <option value="10:00">10:00</option>
-                <option value="12:00">12:00</option>
-                <option value="14:00">14:00</option>
-                <option value="16:00">16:00</option>
-                <option value="18:00">18:00</option>
+                {getAvailableTimes().map((time) => (
+                  <option key={time} value={time}>
+                    {time}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -165,7 +183,10 @@ export default function BookingPage() {
                   <option disabled>Nessun amico selezionabile</option>
                 ) : (
                   friends.map((friend, index) => (
-                    <option key={index} value={`${friend.username} ${friend.surname}`}>
+                    <option
+                      key={index}
+                      value={`${friend.username} ${friend.surname}`}
+                    >
                       {friend.username} {friend.surname}
                     </option>
                   ))

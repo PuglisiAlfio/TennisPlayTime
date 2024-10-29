@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import users from "../users.json";
+import users from "../db/users.json";
 
 export default function Login() {
   const [username, setUsername] = useState("");

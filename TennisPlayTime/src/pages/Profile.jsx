@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SettingsMenu from "../components/SettingsMenu";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -12,10 +13,9 @@ export default function Profile() {
   });
 
   const [stats, setStats] = useState({
-    totalMatches: 10,
-    wins: 7,
-    losses: 3,
-    winPercentage: '',
+    totalMatches: 8,
+    wins: 6,
+    losses: 2,
     recentWin: {},
     hardestMatch: {},
   });
@@ -46,6 +46,7 @@ export default function Profile() {
     setStats(storedStats);
     setUpcomingMatches(storedUpcomingMatches);
     setPastMatches(storedPastMatches);
+    console.log(storedUser.username);
   }, []);
 
   const handleEdit = () => setIsEditing(true);
@@ -69,32 +70,26 @@ export default function Profile() {
     <div className="container mx-auto p-6">
       {/* Sezione Informazioni Personali */}
       <div className="flex flex-col md:flex-row justify-between shadow-lg p-6 rounded-lg mb-8">
-        <div className="flex items-center">
-          {/* Sezione immagine profilo */}
+        <div className="flex items-center text-lime-500">
+          {/* Immagine del profilo */}
           <div className="flex flex-col items-center pr-6">
             <div className="relative">
               <img
-                src={profileImage || "https://via.placeholder.com/150"}
+                src="https://via.placeholder.com/150"
                 alt="Profile"
                 className="w-40 h-40 rounded-full object-cover shadow-md"
               />
               <label
                 htmlFor="profileImage"
-                className="absolute bottom-0 right-0 bg-lime-500 text-white p-2 rounded-full cursor-pointer shadow-md"
+                className="absolute bottom-0 right-0 bg-lime-500 text-white p-2 rounded-full cursor-pointer shadow-md hover:bg-lime-600"
               >
-                <input
-                  type="file"
-                  id="profileImage"
-                  className="hidden"
-                  onChange={handleProfileImageChange}
-                />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="size-6"
+                  className="w-6 h-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -106,137 +101,84 @@ export default function Profile() {
             </div>
           </div>
           <div>
-            {!isEditing ? (
-              <>
-                <h2 className="text-2xl font-semibold mb-2">{user.username}</h2>
-                <p>Email: {user.email}</p>
-                <p>Telefono: {user.phone || "Non fornito"}</p>
-                <button
-                  className="mt-4 bg-lime-500 text-white px-4 py-2 rounded-md"
-                  onClick={handleEdit}
-                >
-                  Modifica informazioni
-                </button>
-              </>
-            ) : (
-              <div className="space-y-3">
-                <input
-                  type="text"
-                  name="username"
-                  value={user.username}
-                  onChange={handleInputChange}
-                  className="p-2 border border-gray-300 rounded-md w-full"
-                  placeholder="Inserisci username"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={user.email}
-                  onChange={handleInputChange}
-                  className="p-2 border border-gray-300 rounded-md w-full"
-                  placeholder="Inserisci email"
-                />
-                <input
-                  type="text"
-                  name="phone"
-                  value={user.phone}
-                  onChange={handleInputChange}
-                  className="p-2 border border-gray-300 rounded-md w-full"
-                  placeholder="Numero di telefono"
-                />
-                <div className="flex space-x-2">
-                  <button
-                    className="bg-green-500 text-white px-4 py-2 rounded-md"
-                    onClick={handleSave}
-                  >
-                    Salva
-                  </button>
-                  <button
-                    className="bg-red-500 text-white px-4 py-2 rounded-md"
-                    onClick={handleCancel}
-                  >
-                    Annulla
-                  </button>
-                </div>
-              </div>
-            )}
+            <h2 className="text-2xl font-semibold mb-2">{user.username}</h2>
+            <p>Email: esempio@email.com</p>
+            <p>Telefono: Non fornito</p>
           </div>
         </div>
-        <div className="mt-6 md:mt-0">
-          <button
-            className="bg-red-600 text-white px-4 py-2 rounded-md"
-            onClick={handleLogout}
-          >
-            Logout
-          </button>
+        <div className="flex justify-between gap-4">
+          <SettingsMenu />
+          <div className="mt-6 md:mt-0">
+            <button
+              className="hover:bg-lime-300 text-lime-300 px-4 py-2 rounded-md transition duration-700 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-gray-800 "
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Sezione Statistiche Partite */}
-      <div className="shadow-lg p-6 rounded-lg mb-8">
+      <div className="shadow-lg p-6 rounded-lg mb-8 text-lime-500">
         <h3 className="text-xl font-bold mb-4">Statistiche Partite</h3>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <div className="text-center">
-            <p className="text-2xl font-semibold">{stats.totalMatches}</p>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 text-center">
+          <div>
+            <p className="text-2xl font-semibold text-lime-500">8</p>
             <p className="text-lime-500">Partite Giocate</p>
           </div>
-          <div className="text-center">
-            <p className="text-2xl font-semibold">{stats.wins}</p>
+          <div>
+            <p className="text-2xl font-semibold text-lime-500">6</p>
             <p className="text-lime-500">Vittorie</p>
           </div>
-          <div className="text-center">
-            <p className="text-2xl font-semibold">{stats.losses}</p>
+          <div>
+            <p className="text-2xl font-semibold text-lime-500">2</p>
             <p className="text-lime-500">Sconfitte</p>
           </div>
-          <div className="text-center">
-            <p className="text-2xl text-lime-500 font-semibold">{stats.winPercentage}%</p>
+          <div>
+            <p className="text-2xl font-semibold text-lime-500">75%</p>
             <p className="text-lime-500">Percentuale di Vittoria</p>
           </div>
         </div>
       </div>
 
       {/* Sezione Storico Partite */}
-      <div className="shadow-lg p-6 rounded-lg mb-8">
+      <div className="shadow-lg p-6 rounded-lg mb-8 text-lime-500">
         <h3 className="text-xl font-bold mb-4">Storico Partite</h3>
         <ul className="space-y-4">
-          {pastMatches.map((match) => (
-            <li key={match.id} className="flex justify-between items-center">
-              <div>
-                <p className="font-semibold">{match.opponent}</p>
-                <p className="text-gray-500">{match.result}</p>
-              </div>
-              <p
-                className={
-                  match.outcome === "Vittoria"
-                    ? "text-green-500"
-                    : "text-red-500"
-                }
-              >
-                {match.outcome}
-              </p>
-            </li>
-          ))}
+          <li className="flex justify-between items-center">
+            <div>
+              <p className="font-semibold">Avversario 1</p>
+              <p className="">6-3, 6-4</p>
+            </div>
+            <p className="text-green-500">Vittoria</p>
+          </li>
+          <li className="flex justify-between items-center">
+            <div>
+              <p className="font-semibold">Avversario 2</p>
+              <p className="">4-6, 3-6</p>
+            </div>
+            <p className="">Sconfitta</p>
+          </li>
         </ul>
       </div>
 
       {/* Sezione Prossime Partite */}
-      <div className="shadow-lg p-6 rounded-lg mb-8">
+      <div className="shadow-lg p-6 rounded-lg mb-8 text-lime-500">
         <h3 className="text-xl font-bold mb-4">Prossime Partite</h3>
         <ul className="space-y-4">
-          {upcomingMatches.map((match) => (
-            <li key={match.id} className="flex justify-between items-center">
-              <div>
-                <p className="font-semibold">{match.opponent}</p>
-                <p className="text-gray-500">{match.date}</p>
-              </div>
-              <button className="text-red-500 hover:underline">Annulla</button>
-            </li>
-          ))}
+          <li className="flex justify-between items-center">
+            <div>
+              <p className="font-semibold">Avversario Futuro</p>
+              <p className="">Data: 20 Ottobre 2024</p>
+            </div>
+            <button className=" hover:underline">Annulla</button>
+          </li>
         </ul>
       </div>
 
       {/* Preferenze e Notifiche */}
-      <div className="shadow-lg p-6 rounded-lg mb-8">
+      <div className="shadow-lg p-6 rounded-lg mb-8 text-lime-500">
         <h3 className="text-xl font-bold mb-4">Preferenze e Notifiche</h3>
         <label className="flex items-center space-x-3">
           <input type="checkbox" className="form-checkbox" />

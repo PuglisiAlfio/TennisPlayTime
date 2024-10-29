@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import pastMatches from "../pastMatches.json"
+import pastMatches from "../db/pastMatches.json"
 
 export default function Dashboard() {
   const upcomingMatches = [

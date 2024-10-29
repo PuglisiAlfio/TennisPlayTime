@@ -2,6 +2,8 @@ import React, { useReducer } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+import friends from "../db/friends.json";
+
 import fotocampoblu from "../assets/campotennisdallalto.jpg";
 import fotocampoverde from "../assets/campotennisverde.jpg";
 
@@ -29,7 +31,6 @@ function prenotazioneReducer(state, action) {
 }
 
 export default function BookingPage() {
-
   const [state, dispatch] = useReducer(prenotazioneReducer, initialState);
 
   const handleBooking = (e) => {
@@ -48,22 +49,22 @@ export default function BookingPage() {
     {
       id: "Campo Centrale",
       name: "Campo Centrale",
-      image: fotocampoblu
+      image: fotocampoblu,
     },
     {
       id: "Campo 1",
       name: "Campo 1",
-      image: fotocampoverde
+      image: fotocampoverde,
     },
     {
       id: "Campo 2",
       name: "Campo 2",
-      image: fotocampoverde
+      image: fotocampoverde,
     },
     {
       id: "Campo 4",
       name: "Campo 4",
-      image: fotocampoblu
+      image: fotocampoblu,
     },
   ];
 
@@ -147,19 +148,29 @@ export default function BookingPage() {
             </div>
 
             {/* Invita amici */}
+            {/* Invita amici */}
             <div className="mb-6">
               <label className="block text-lg font-semibold mb-2">
                 Invita amici
               </label>
-              <input
-                type="text"
+              <select
                 value={state.friends}
                 onChange={(e) =>
                   dispatch({ type: "SET_FRIENDS", payload: e.target.value })
                 }
-                placeholder="Inserisci nomi degli amici"
                 className="w-full p-2 rounded-md border border-lime-300 focus:outline-none focus:ring focus:ring-lime-300"
-              />
+              >
+                <option value="">Seleziona un amico</option>
+                {friends.length === 0 ? (
+                  <option disabled>Nessun amico selezionabile</option>
+                ) : (
+                  friends.map((friend, index) => (
+                    <option key={index} value={`${friend.username} ${friend.surname}`}>
+                      {friend.username} {friend.surname}
+                    </option>
+                  ))
+                )}
+              </select>
             </div>
 
             {/* Pulsante di prenotazione */}

@@ -1,13 +1,15 @@
-import React, { useReducer } from "react";
+import{ useReducer } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+import { useOverlay } from "../context/OverlayProvider";
 
 import friends from "../db/friends.json";
 
 import fotocampoblu from "../assets/campotennisdallalto.jpg";
 import fotocampoverde from "../assets/campotennisverde.jpg";
 
-//UseReducer
+// UseReducer
 const initialState = {
   selectedDate: null,
   selectedTime: "",
@@ -30,18 +32,13 @@ function prenotazioneReducer(state, action) {
   }
 }
 
-export default function BookingPage() {
+export default function Prenota() {
   const [state, dispatch] = useReducer(prenotazioneReducer, initialState);
+  const { isOverlayVisible, showOverlay, hideOverlay } = useOverlay();
 
   const handleBooking = (e) => {
     e.preventDefault();
-    // Funzione per gestire la prenotazione
-    console.log({
-      selectedDate: state.selectedDate,
-      selectedTime: state.selectedTime,
-      selectedField: state.selectedField,
-      friends: state.friends,
-    });
+    showOverlay(); // Mostra l'overlay al click su "Conferma prenotazione"
   };
 
   const getAvailableTimes = () => {
@@ -52,17 +49,14 @@ export default function BookingPage() {
 
     const allTimes = ["08:00", "10:00", "12:00", "14:00", "16:00", "18:00"];
 
-    // Se è oggi, filtra gli orari dopo l'orario corrente
     if (isToday) {
       const currentHour = now.getHours();
       return allTimes.filter((time) => parseInt(time, 10) > currentHour);
     }
 
-    // Se non è oggi, mostra tutti gli orari
     return allTimes;
   };
 
-  // Dati sui campi
   const fields = [
     {
       id: "Campo Centrale",
@@ -88,12 +82,40 @@ export default function BookingPage() {
 
   return (
     <div className="p-8 text-lime-400">
+      {/* Overlay con dettagli della prenotazione */}
+      {isOverlayVisible && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
+          <div className="bg-black p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-2xl text-lime-300 font-bold mb-4">
+              Abbiamo inviato una notifica a {state.friends}.
+            </h2>
+            <p className="text-lg text-lime-300 mb-4">
+              <strong>Data:</strong> {state.selectedDate?.toLocaleDateString() || "Nessuna data selezionata"}
+            </p>
+            <p className="text-lg text-lime-300 mb-4">
+              <strong>Orario:</strong> {state.selectedTime || "Nessun orario selezionato"}
+            </p>
+            <p className="text-lg text-lime-300 mb-4">
+              <strong>Campo:</strong> {state.selectedField || "Nessun campo selezionato"}
+            </p>
+            <p className="text-lg text-lime-300 mb-6">
+              Attendi che {state.friends || "il tuo amico"} accetti l'invito.
+            </p>
+            <button
+              onClick={hideOverlay}
+              className="bg-lime-500 text-white py-2 px-4 rounded-md hover:bg-lime-600 transition duration-300"
+            >
+              Ok
+            </button>
+          </div>
+        </div>
+      )}
+
       <h1 className="text-4xl font-bold mb-8 text-center">
         Prenota il tuo campo da tennis
       </h1>
 
       <div className="flex flex-col md:flex-row md:space-x-12">
-        {/* Form di prenotazione */}
         <div className="w-full md:w-2/3">
           <form onSubmit={handleBooking} className="p-8 rounded-lg shadow-lg">
             {/* Selezione della data */}
@@ -109,7 +131,7 @@ export default function BookingPage() {
                 dateFormat="dd/MM/yyyy"
                 className="w-full p-2 rounded-md border border-lime-300 focus:outline-none focus:ring focus:ring-lime-300"
                 placeholderText="Scegli una data"
-                minDate={new Date()} //limita la prenotazione a partire da oggi
+                minDate={new Date()}
               />
             </div>
 
@@ -145,7 +167,7 @@ export default function BookingPage() {
                     key={field.id}
                     className={`p-4 rounded-md shadow-md border cursor-pointer transition-transform transform hover:scale-105 ${
                       state.selectedField === field.id
-                        ? "border-lime-500 border-4"
+                        ? "bg-lime-300 border-lime-300 text-gray-800"
                         : "border-lime-300"
                     }`}
                     onClick={() =>
@@ -165,7 +187,6 @@ export default function BookingPage() {
               </div>
             </div>
 
-            {/* Invita amici */}
             {/* Invita amici */}
             <div className="mb-6">
               <label className="block text-lg font-semibold mb-2">
@@ -194,7 +215,6 @@ export default function BookingPage() {
               </select>
             </div>
 
-            {/* Pulsante di prenotazione */}
             <div className="text-center">
               <button
                 type="submit"
@@ -206,7 +226,6 @@ export default function BookingPage() {
           </form>
         </div>
 
-        {/* Sezione di riepilogo */}
         <div className="w-full md:w-1/3 p-6 rounded-lg shadow-lg mt-6 md:mt-0">
           <h2 className="text-4xl font-bold mb-6 text-center">
             Riepilogo Prenotazione
